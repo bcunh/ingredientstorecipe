@@ -1,1 +1,14 @@
+# Ignoriere PyCharm-Projektdateien
+.idea/
+
+# Ignoriere virtuelle Umgebung
+.venv/
+
 /dataset/
+
+# Modelldateien
+*.pt
+
+# Sonstiges
+__pycache__/
+*.pyc
