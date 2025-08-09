@@ -3,9 +3,10 @@ from ultralytics import YOLO
 import numpy as np
 import matplotlib.pyplot as plt
 
+import localLLM
 
 #eigenes trainiertes Modell (von trainmodel.py) laden
-model= YOLO('runs/detect/train3/weights/best.pt')
+model= YOLO('runs/detect/train4/weights/best.pt')
 
 #dein Bild laden
 image = cv2.imread('beispiel.jpg')
@@ -31,6 +32,10 @@ classnames = prediction[0].names
 convertclass = list({classnames[i] for i in ingredientlist})
 print('The ingredients are:', convertclass)
 
+ingredient_list=",".join(convertclass)
+prompt="Give me a recipe with the following ingredients:"+ingredient_list+"\n"
+antwort = localLLM.ollama_chat(prompt)
+print(antwort)
 
 #ingredientlist = results.ingredients
 def getingredients():
