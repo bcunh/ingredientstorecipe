@@ -26,17 +26,23 @@ def imageUploader():
 
     # falls kein Bild ausgewählt wurde
     else:
-        print(" Please choose a file.")
+        message="please select an image file"
+        label.config(image="", text=message, anchor="center")
+        print(message)
 
 
  #globale Variable path nutzen, um Bild hier erneut aufzurufen
 def generaterecipe(path):
     if path:
+        label.config(image="", text="Loading...")  # Lädt zeigen
+        label.image = None
         antwort= ingredientdetection.start(path) #ingredient detection durchführen
         label.config(image="",text=antwort) #Antwort anzeigen lassen
         label.image = None
     else:
-        print("Please choose a file.")
+        message = "Error:no image file selected"
+        label.config(image="", text=message, anchor="center")
+        print(message)
 
 # Main method
 if __name__ == "__main__":
@@ -51,7 +57,7 @@ if __name__ == "__main__":
 
     #Platzhalter für Bild und Text setzen
     label = tk.Label(app)
-    label.pack(pady=10)
+    label.pack(expand=True, fill="both") #Label zentrieren
 
     # upload button
     uploadButton = tk.Button(app, text="Generate Recipe", command=lambda: generaterecipe(path))
