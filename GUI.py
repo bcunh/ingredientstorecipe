@@ -1,4 +1,3 @@
-# Importing libraries
 import tkinter as tk
 from tkinter import Label
 from tkinter import filedialog
@@ -9,61 +8,57 @@ import ingredientdetection
 #path wird als globale variable definiert um sie später nutzen zu können
 path = None
 
-# image uploader function
+# Bild hochladen
 def imageUploader():
     fileTypes = [("Image files", "*.png;*.jpg;*.jpeg")]
     global path
     path = tk.filedialog.askopenfilename(filetypes=fileTypes) #Zugriff auf das Bild
 
-    # if file is selected
+    # Bild ausgewählt
     if len(path):
         img = Image.open(path)
-        img = img.resize((200, 200))
-        pic = ImageTk.PhotoImage(img)
+        img = img.resize((300, 300)) #Bildgröße fürs Fenster anpassen
+        pic = ImageTk.PhotoImage(img) #umwandeln in Tkinter Bildobjekt
 
-        # re-sizing the app window in order to fit picture
-        # and buttom
-        app.geometry("560x300")
+        #Bild in Fenster anzeigen
         label.config(image=pic)
         label.image = pic
 
-    # if no file is selected, then we are displaying below message
+    # falls kein Bild ausgewählt wurde
     else:
-        print("No file is Choosen !! Please choose a file.")
+        print(" Please choose a file.")
 
 
-
+ #globale Variable path nutzen, um Bild hier erneut aufzurufen
 def generaterecipe(path):
     if path:
-        antwort= ingredientdetection.start(path)
-        label.config(image="",text=antwort)
+        antwort= ingredientdetection.start(path) #ingredient detection durchführen
+        label.config(image="",text=antwort) #Antwort anzeigen lassen
         label.image = None
     else:
-        print("No image uploaded yet!")
+        print("Please choose a file.")
 
 # Main method
 if __name__ == "__main__":
 
-    # defining tkinter object
+    # tkinter object
     app = tk.Tk()
 
-    # setting title and basic size to our App
+    # Fenster configs: titel, größe, button farbe
     app.title("Ingredients to Recipe")
-    app.geometry("560x270")
-
-    # adding background color to our upload button
-   # app.option_add("*Label*Background", "white")
+    app.geometry("900x500")
     app.option_add("*Button*Background", "lightblue")
 
+    #Platzhalter für Bild und Text setzen
     label = tk.Label(app)
     label.pack(pady=10)
 
-    # defining our upload buttom
+    # upload button
     uploadButton = tk.Button(app, text="Generate Recipe", command=lambda: generaterecipe(path))
     uploadButton.pack(side=tk.BOTTOM, pady=10, padx=0)
 
-    # defining our upload buttom
+    # generate button
     uploadButton = tk.Button(app, text="Upload Image", command=imageUploader)
     uploadButton.pack(side=tk.BOTTOM, pady=0, padx=0)
 
-    app.mainloop() #show window
+    app.mainloop() #Fenster anzeigen

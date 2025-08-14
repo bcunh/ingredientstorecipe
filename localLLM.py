@@ -7,7 +7,7 @@ def ollama_chat(prompt, model="llama2"):
     data = {
         "model": model,
         "prompt": prompt,
-        "stream": False
+        "stream": False #Antwort wird in einem ausgegeben
     }
 
     response = requests.post(url, headers=headers, json=data)
