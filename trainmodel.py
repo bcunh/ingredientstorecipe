@@ -3,36 +3,36 @@ from roboflow import Roboflow
 import os
 
 
-#Dataset von Roboflow herunterladen
+#download dataset from Roboflow
 rf = Roboflow(api_key="")
 project = rf.workspace("mymlproject-j4uiu").project("ingredients-2-nct08")
 version = project.version(2)
 dataset = version.download("yolov8-obb")
 data_path = os.path.join(dataset.location, "data.yaml")
 
-# YOLOv8n model laden
+# load YOLOv8n model
 model = YOLO("yolov8n.pt")
 
-# Trainieren
-#Standard mit batchsize=16, Optimizer=AdamW
+# actual training
+#default with batchsize=16, Optimizer=AdamW
 results = model.train(data=data_path, epochs=50, patience=30)
 
-#Modell bewerten
+#evaluate model
 model= YOLO('runs/detect/train11/weights/best.pt')
 
-#metrics = model.val() #Bewertung auf denselben Daten, die beim Training verwendet wurden
+#metrics = model.val() #evaluation on the same data that was used for training
 #print(metrics)
 
 metrics = model.val(
     data=data_path,
-    split="test"               # auf testdaten bewerten
+    split="test"        #evaluation on test data
 )
 
 test_path=os.path.join(dataset.location, "test", "images")
-# Batch-Testing -  visuell erkennung durchführen (zu finden unter runs/detect/predict)
+# Batch-Testing -  perform visual recognition (to be found under runs/detect/predict)
 results = model.predict(
     source=test_path,
-    save=True,       # speichert Bilder mit Bounding Boxes
-    conf=0.5,        # Mindest-Confidence
+    save=True,       # save images with Bounding Boxes
+    conf=0.5,        # confidence above 50%
     batch=16
 )

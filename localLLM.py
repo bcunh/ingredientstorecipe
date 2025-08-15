@@ -1,13 +1,13 @@
-#bevor dieses script auszuführen ist, muss ollama installiert und "ollama run llama2" in cmd ausgeführt werden
+#before this script can be executed, ollama must be installed and 'ollama run llama2' must be executed in cmd
 import requests
 
 def ollama_chat(prompt, model="llama2"):
-    url = "http://localhost:11434/api/generate"
-    headers = {"Content-Type": "application/json"}
+    url = "http://localhost:11434/api/generate" #local ollama API
+    headers = {"Content-Type": "application/json"} #in JSON format
     data = {
         "model": model,
         "prompt": prompt,
-        "stream": False #Antwort wird in einem ausgegeben
+        "stream": False #answer displayed in one chunk
     }
 
     response = requests.post(url, headers=headers, json=data)
