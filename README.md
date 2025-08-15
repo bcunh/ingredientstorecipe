@@ -16,6 +16,7 @@ It provides variety for your meals and another benefit of this feature is that i
 Bell pepper, butter, carrot, cauliflower, cheese, chicken, chili, egg, garlic, ham, meat, milk, mushrooms, olives, onion, pasta, peas, potato, rice, tomato, zucchini  
 
 The project is based on object detection using the YOLOv8 model from Ultralytics, which identifies the ingredients in the photo, and a local LLM from Ollama, which generates the recipe.
+The data has been prepared in Roboflow and can be found [here](https://universe.roboflow.com/mymlproject-j4uiu/ingredients-2-nct08/browse?queryText=&pageSize=50&startingIndex=0&browseQuery=true).
 
 ## Instructions 
 
@@ -99,5 +100,3 @@ To use the download code, a personal Roboflow account is required to obtain an A
 ## Additional Notes
 
 The dataset still needs to be expanded with more use-case relevant examples.
-
-## License
