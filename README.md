@@ -1,58 +1,82 @@
-# Ingredients to Recipe
+# Ingredients to Recipe 
+
 ## Welcome 
-Dieses Projekt ermöglicht es dem Nutzer, ein Foto von zu nutzenden Lebensmittel hochzuladen und sich ein Rezept generieren zu lassen. 
-Jeder stand bereits vor der Frage "Was soll ich heute essen? Ich hab Lust auf X, aber was kann ich damit machen?". Hier kann man ganz einfach per Knopfdruck entscheiden lassen.
-Es bietet Abwechslung für die eigene Ernährung. Ein weiterer Mehrwert dieser Funktion liegt darin, Reste verwerten zu können, indem man sich dafür ein Rezept generieren lässt.
+This project allows users to upload a photo of ingredients they want to use and generate a recipe from them.  
+Everyone has probably faced the question: "What should I eat today? I feel like X, but what can I make with it?" With this project, you can easily get an answer.  
 
-:exclamation: Aktuell erkennt das Modell folgende Zutaten: 
- Paprika, Butter, Karrotte, Blumenkohl, Käse, Hähnchen, Chilli, Ei, Knoblauch, Schinken/Wurstaufstrich, Fleisch, Milch, Pilze, Oliven, Zwiebel, Pasta, Erbsen, Kartoffel, Reis, Tomate, Zucchini
+It provides variety for your meals and another benefit of this feature is that it helps reduce food waste by generating recipes for leftover ingredients.  
 
-Das Projekt basiert auf der Objekterkennung mithilfe des YOLOv8 Modells von ultralytics, das die Zutaten auf dem Foto identifiziert
-und einem lokalen LLM von Ollama, das anschließend das Rezept generiert.
+:exclamation: Currently, the model recognizes the following ingredients:  
+Bell pepper, butter, carrot, cauliflower, cheese, chicken, chili, egg, garlic, ham, meat, milk, mushrooms, olives, onion, pasta, peas, potato, rice, tomato, zucchini  
 
-## Nutzungsanleitung 
-### 1.Vorbereitung 
-1.1. Ollama [hier](https://ollama.com/) installieren .exe auführen und zu PATH hinzufügen, um in cmd "ollama run llama2" auszuführen
+The project is based on object detection using the YOLOv8 model from Ultralytics, which identifies the ingredients in the photo, and a local LLM from Ollama, which generates the recipe.  
 
-1.2. Repository klonen und Requirements mittels "pip install -r requirements.txt" herunterladen.
+## Usage Instructions 
 
-1.3. Beispielfoto nutzen oder eigenes Foto machen 
-### 2. Ausführung
-GUI.py ausführen,
-Foto auswählen ("Upload Image"),
-Rezept generieren ("Generate Recipe")
+### 1. Setup 
+1.1. Install Ollama [here](https://ollama.com/), run the .exe, and add it to your PATH to be able to run `ollama run llama2` in the command line.  
+```
+ollama run llama2
+```
 
-Die Generierung des Rezeptes dauert einen Moment. 
+1.2. Clone this repository and install the requirements using:  
+```
+pip install -r requirements.txt
+```
+1.3. Use the example photo or take your own photo.
 
+### 2. Execution
 
-### 3. Zur Erweiterung des Modelltrainings: 
-Die Daten wurden in Roboflow vorbereitet und sind unter ... zu finden. 
-Um den Downloadcode nutzen zu können, ist ein eigener Account in Roboflow notwendig, um den API-Key zu entnehmen. 
-## Projektstruktur
+Run GUI.py,
+Select a photo ("Upload Image"),
+Generate the recipe ("Generate Recipe").
 
-**GUI.py**: startet den workflow, der Nutzer wird durch eine GUI angeleitet <br>
-**ingredientdetection.py**: führt Erkennung der Zutaten durch und leitet diese an das localLLM weiter <br>
-**localLLM**: gibt prompt in LLM und generiert Antwort <br>
-**trainmodel.py**: hier wurde zuvor das Modell trainiert; NICHT ZUR EIGENTLICHEN AUSFÜHRUNG NÖTIG <br>
+The recipe generation may take a moment.
+
+### 3. To Extend Model Training
+
+The data has been prepared in Roboflow and can be found [here](https://universe.roboflow.com/mymlproject-j4uiu/ingredients-2-nct08/browse?queryText=&pageSize=50&startingIndex=0&browseQuery=true)
+To use the download code, a personal Roboflow account is required to obtain an API key.
+
+## Project Structure
+
+**GUI.py**: starts the workflow, guiding the user through a GUI <br>
+**ingredientdetection.py**: performs ingredient detection and passes the data to the local LLM <br>
+**localLLM**: sends the prompt to the LLM and generates the response <br>
+**trainmodel.py**: previously used to train the model; NOT NEEDED FOR NORMAL EXECUTION <br>
 <br>
-**runs**: hier findet man alle Trainingsdurchläufe zu Dokumentationszwecken:  <br>
-- runs/detect/train2 - Training mit ca.3000 Bildern und 5 Epochs
-- runs/detect/train3 - Training mit ca.3100 Bildern (um wenige 100 erweitert, die näher am Anwendungsfall sind) und 5 Epochs
-- runs/detect/train4 - Training mit ca.5500 Bildern (erweitert mit Augmentation) und 10 Epochs
-- runs/detect/train10 - Training mit ca.5500 Bildern und 22 Epoch (abgebrochen)
-- runs/detect/train11 - Training mit ca.5500 Bildern und 50 Epochs (über GPU in Google Collab)
+**runs**: contains all training runs for documentation purposes: <br>
+
+- runs/detect/train2 - training with ~3000 images and 5 epochs
+
+- runs/detect/train3 - training with ~3100 images (slightly expanded with data closer to the use case) and 5 epochs
+
+- runs/detect/train4 - training with ~5500 images (augmented) and 10 epochs
+
+- runs/detect/train10 - training with ~5500 images and 22 epochs (stopped early)
+
+- runs/detect/train11 - training with ~5500 images and 50 epochs (using GPU in Google Colab)
 <br><br>
-- runs/detect/val val2 - zur Generierung der Metriken aus train10
-- runs/detect/val3 - Metriken basierend auf Testdaten Modell aus train 10
-- runs/detect/val4 - Metriken basierend auf Testdaten Modell aus train 11
-- runs/detect/predict - Erkennung auf den Testdaten mit Boundingboxes mit Modell aus train 10 
-- runs/detect/predict2 - Erkennung auf den Testdaten mit Boundingboxes mit Modell aus train 11
-<br>
-beispiel_.jpg: Beispielfoto <br>
-.gitignore: enthält Dateien, die in Git zu ignorieren sind <br>
-requirements.txt: enthält nötige packages <br>
-README.md: Dokumentation <br>
 
-## Weiteres 
-Die Datengrundlage muss noch mit mehr Anwendungsnahen Beispielen erweitert werden.
-## Lizenz 
+- runs/detect/val val2 - metrics generated from train10
+
+- runs/detect/val3 - metrics based on test data from train10
+
+- runs/detect/val4 - metrics based on test data from train11
+
+- runs/detect/predict - detection on test data with bounding boxes using the model from train10
+
+- runs/detect/predict2 - detection on test data with bounding boxes using the model from train11
+
+<br>
+
+**beispiel_.jpg**: example photo <br>
+**.gitignore**: files to be ignored by Git <br>
+**requirements.txt**: required packages <br>
+**README.md**: documentation <br>
+
+## Additional Notes
+
+The dataset still needs to be expanded with more use-case relevant examples.
+
+## License
