@@ -4,7 +4,7 @@ import os
 
 
 #download dataset from Roboflow
-rf = Roboflow(api_key="")
+rf = Roboflow(api_key="") #get your own api-key via your roboflow account
 project = rf.workspace("mymlproject-j4uiu").project("ingredients-2-nct08")
 version = project.version(2)
 dataset = version.download("yolov8-obb")
@@ -18,7 +18,7 @@ model = YOLO("yolov8n.pt")
 results = model.train(data=data_path, epochs=50, patience=30)
 
 #evaluate model
-model= YOLO('runs/detect/train11/weights/best.pt')
+model= YOLO('runs/detect/train12/weights/best.pt')
 
 #metrics = model.val() #evaluation on the same data that was used for training
 #print(metrics)

@@ -6,7 +6,7 @@ import localLLM
 
 def start(path):
  #load own trained model (trained in trainmodel.py, saved under runs)
- model= YOLO('runs/detect/train11/weights/best.pt')
+ model= YOLO('runs/detect/train12/weights/best.pt')
 
  #load image for recognition
  image = cv2.imread(path)

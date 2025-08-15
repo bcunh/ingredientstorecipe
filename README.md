@@ -78,6 +78,8 @@ To use the download code, a personal Roboflow account is required to obtain an A
 - runs/detect/train10 - training with ~5500 images and 22 epochs (stopped early)
 
 - runs/detect/train11 - training with ~5500 images and 50 epochs (using GPU in Google Colab)
+
+- runs/detect/train12 - training with ~5500 images and 100 epochs (using GPU in Google Colab)
 <br><br>
 
 - runs/detect/val val2 - metrics generated from train10
@@ -86,10 +88,13 @@ To use the download code, a personal Roboflow account is required to obtain an A
 
 - runs/detect/val4 - metrics based on test data from train11
 
+- runs/detect/val5 - metrics based on test data from train12
+
 - runs/detect/predict - detection on test data with bounding boxes using the model from train10
 
 - runs/detect/predict2 - detection on test data with bounding boxes using the model from train11
 
+-runs/detect/predict3 - detection on test data with bounding boxes using the model from train12
 <br>
 
 **beispiel_.jpg**: example photo <br>
