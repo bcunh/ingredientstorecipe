@@ -19,12 +19,12 @@ def start(path):
  prediction = model.predict(image)
  print(prediction)
 
-#zur Visualisierung der erkannten zutaten
- result = prediction[0].plot()  # gibt ein NumPy-Bild zurück
- plt.imshow(cv2.cvtColor(result, cv2.COLOR_BGR2RGB))
- plt.axis('off')
- plt.title('Erkannte Zutaten')
- plt.show()
+#DEBUG: WICHTIG zur Visualisierung der erkannten zutaten
+# result = prediction[0].plot()  # gibt ein NumPy-Bild zurück
+# plt.imshow(cv2.cvtColor(result, cv2.COLOR_BGR2RGB))
+# plt.axis('off')
+# plt.title('Erkannte Zutaten')
+# plt.show()
 
  #klasse ausgeben, die in cls im tensor format vorliegt,dann in integer liste konvertieren
  ingredientlist = prediction[0].boxes.cls.int().tolist()
