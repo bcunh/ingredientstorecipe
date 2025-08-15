@@ -4,7 +4,9 @@
 # Ignoriere virtuelle Umgebung
 .venv/
 
-/dataset/
+# Ignoriere heruntergeladene Datensätze
+/previousdataset/
+/Ingredients-2-2/
 
 # Modelldateien
 *.pt
