@@ -40,11 +40,13 @@ Um den Downloadcode nutzen zu können, ist ein eigener Account in Roboflow notwe
 - runs/detect/train3 - Training mit ca.3100 Bildern (um wenige 100 erweitert, die näher am Anwendungsfall sind) und 5 Epochs
 - runs/detect/train4 - Training mit ca.5500 Bildern (erweitert mit Augmentation) und 10 Epochs
 - runs/detect/train10 - Training mit ca.5500 Bildern und 22 Epoch (abgebrochen)
+- runs/detect/train11 - Training mit ca.5500 Bildern und 50 Epochs (über GPU in Google Collab)
 <br><br>
 - runs/detect/val val2 - zur Generierung der Metriken aus train10
-- runs/detect/val3 - Metriken basierend auf Testdaten 
-- runs/detect/predict - Erkennung auf den Testdaten mit Boundingboxes 
-
+- runs/detect/val3 - Metriken basierend auf Testdaten Modell aus train 10
+- runs/detect/val4 - Metriken basierend auf Testdaten Modell aus train 11
+- runs/detect/predict - Erkennung auf den Testdaten mit Boundingboxes mit Modell aus train 10 
+- runs/detect/predict2 - Erkennung auf den Testdaten mit Boundingboxes mit Modell aus train 11
 <br>
 beispiel_.jpg: Beispielfoto <br>
 .gitignore: enthält Dateien, die in Git zu ignorieren sind <br>

@@ -18,7 +18,7 @@ model = YOLO("yolov8n.pt")
 results = model.train(data=data_path, epochs=50, patience=30)
 
 #Modell bewerten
-model= YOLO('runs/detect/train10/weights/best.pt')
+model= YOLO('runs/detect/train11/weights/best.pt')
 
 #metrics = model.val() #Bewertung auf denselben Daten, die beim Training verwendet wurden
 #print(metrics)
@@ -29,7 +29,7 @@ metrics = model.val(
 )
 
 test_path=os.path.join(dataset.location, "test", "images")
-# Batch-Testing -  visuell erkennung durchführen (zu finden unter runs/detect/predict
+# Batch-Testing -  visuell erkennung durchführen (zu finden unter runs/detect/predict)
 results = model.predict(
     source=test_path,
     save=True,       # speichert Bilder mit Bounding Boxes

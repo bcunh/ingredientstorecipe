@@ -7,7 +7,7 @@ import localLLM
 
 def start(path):
  #eigenes trainiertes Modell (von trainmodel.py) laden
- model= YOLO('runs/detect/train10/weights/best.pt')
+ model= YOLO('runs/detect/train11/weights/best.pt')
 
  #dein Bild laden
  image = cv2.imread(path)
