@@ -6,7 +6,7 @@ here you'll find:
 - project structure 
 - additional information
 
-## Welcome 
+## Welcome :blush:
 This project allows users to upload a photo of ingredients they want to use and generate a recipe from them.  
 Everyone has probably faced the question: "What should I eat today? I feel like X, but what can I make with it?" With this project, you can easily get an answer.  
 
@@ -18,7 +18,7 @@ Bell pepper, butter, carrot, cauliflower, cheese, chicken, chili, egg, garlic, h
 The project is based on object detection using the YOLOv8 model from Ultralytics, which identifies the ingredients in the photo, and a local LLM from Ollama, which generates the recipe.
 The data has been prepared in Roboflow and can be found [here](https://universe.roboflow.com/mymlproject-j4uiu/ingredients-2-nct08/browse?queryText=&pageSize=50&startingIndex=0&browseQuery=true).
 
-## Instructions 
+## Instructions :point_down:
 
 ### 1. Setup 
 1.1. Install Ollama [here](https://ollama.com/), run the .exe, and add it to your PATH to be able to run `ollama run llama2` in the command line.  
@@ -60,7 +60,7 @@ The recipe generation may take a moment.
 The data has been prepared in Roboflow and can be found [here](https://universe.roboflow.com/mymlproject-j4uiu/ingredients-2-nct08/browse?queryText=&pageSize=50&startingIndex=0&browseQuery=true).
 To use the download code, a personal Roboflow account is required to obtain an API key.
 
-## Project Structure
+## Project Structure :file_folder:
 
 **GUI.py**: starts the workflow, guiding the user through a GUI <br>
 **ingredientdetection.py**: performs ingredient detection and passes the data to the local LLM <br>
@@ -102,6 +102,6 @@ To use the download code, a personal Roboflow account is required to obtain an A
 **requirements.txt**: required packages <br>
 **README.md**: documentation <br>
 
-## Additional Notes
+## Additional Notes :memo:
 
 The dataset still needs to be expanded with more use-case relevant examples, especially butter, mushroom, ham, carrot need to be extended.
