@@ -21,16 +21,34 @@ The data has been prepared in Roboflow and can be found [here](https://universe.
 ## Instructions 
 
 ### 1. Setup 
-1.1. Install Ollama [here](https://ollama.com/), run the .exe, and add it to your PATH to be able to run `ollama run llama2` in the command line.  
+1.1. Download Ollama [here](https://ollama.com/), run the .exe, then do run `ollama run llama2` in the command line.  
 ```
 ollama run llama2
 ```
 
 1.2. Clone this repository, create a virtual environment and install the requirements using:  
 ```
+git clone https://github.com/bcunh/ingredientstorecipe.git
+cd ingredientstorecipe
+```
+create virtual environment 
+```
+python -m venv .venv
+```
+activate virtual enironment 
+- Windows 
+```
+.venv\Scripts\activate  
+```
+- Linux/macOS
+```
+source .venv/bin/activate  # Linux/macOS
+```
+install requirements 
+```
 pip install -r requirements.txt
 ```
-1.3. This repository uses tkinter for the GUI. On Windows and macOS it is already included in python. On Linux it may be required to install it separately. <br>
+1.3. This repository uses tkinter for the GUI. On Windows and macOS it is already included in python (so you can skip this step if you have that). On Linux it may be required to install it separately. <br>
 - Ubuntu/Debian
 ````
 sudo apt install python3-tk
@@ -97,7 +115,7 @@ To use the download code, a personal Roboflow account is required to obtain an A
 -runs/detect/predict3 - detection on test data with bounding boxes using the model from train12
 <br>
 
-**beispiel_.jpg**: example photo <br>
+**example.jpg**: example photo <br>
 **.gitignore**: files to be ignored by Git <br>
 **requirements.txt**: required packages <br>
 **README.md**: documentation <br>
