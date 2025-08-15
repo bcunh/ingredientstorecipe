@@ -1,4 +1,4 @@
-# Ingredients to Recipe 
+# Ingredients to Recipe :fork_and_knife:
 
 here you'll find:
 - project description (welcome)
