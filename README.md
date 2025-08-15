@@ -26,7 +26,7 @@ The data has been prepared in Roboflow and can be found [here](https://universe.
 ollama run llama2
 ```
 
-1.2. Clone this repository, create a virtual environment and install the requirements using:  
+1.2. Clone this repository, create a virtual environment (recommended) and install the requirements using:  
 ```
 pip install -r requirements.txt
 ```
